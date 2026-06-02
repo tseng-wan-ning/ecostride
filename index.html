@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoStride | 永續金融生態系</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #050a10; color: #e2e8f0; }
+        
+        /* 透明玻璃效果 */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+
+        /* 互動按鈕特效 */
+        .btn-glow {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.6);
+            transform: translateY(-2px);
+        }
+
+        /* 背景流動光影 */
+        .bg-gradient {
+            background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, #050a10 60%);
+        }
+    </style>
+</head>
+<body class="bg-gradient">
+
+    <nav class="fixed top-0 w-full z-50 glass mt-4 mx-auto max-w-6xl left-0 right-0 px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                <i class="fas fa-stride text-white"></i>
+            </div>
+            <span class="text-xl font-bold tracking-widest text-emerald-400">ECOSTRIDE</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <a href="#motivation" class="hover:text-emerald-400 transition">痛點與動機</a>
+            <a href="#ui" class="hover:text-emerald-400 transition">界面展示</a>
+            <a href="#simulator" class="hover:text-emerald-400 transition">動態模擬</a>
+        </div>
+        <button class="bg-emerald-600 px-5 py-2 rounded-full text-sm font-bold btn-glow">專題文獻</button>
+    </nav>
+
+    <section class="h-screen flex flex-col justify-center items-center text-center px-6">
+        <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tighter" data-aos="fade-up">
+            讓健康行為 <br> <span class="text-emerald-500">成為綠色資產</span>
+        </h1>
+        <p class="text-gray-400 text-xl max-w-2xl mb-10" data-aos="fade-up" data-aos-delay="200">
+            結合行為金融學與 RWA 代幣化技術，EcoStride 重新定義了永續金融的未來。
+        </p>
+        <div class="flex space-x-4" data-aos="fade-up" data-aos-delay="400">
+            <a href="#simulator" class="bg-white text-black px-8 py-4 rounded-2xl font-bold btn-glow">開始動態模擬</a>
+            <a href="#motivation" class="glass px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition">了解更多</a>
+        </div>
+    </section>
+
+    <section id="motivation" class="py-24 container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-16 text-center">為什麼現有的模式失效了？</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass p-10 hover:border-emerald-500/50 transition cursor-default" data-aos="fade-up">
+                <div class="w-12 h-12 bg-orange-500/20 text-orange-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-clock text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">現時偏誤 (Present Bias)</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">咖啡券與折價券的一次性效用，無法抵消運動的即時痛苦，導致保戶動力隨時間劇減。</p>
+            </div>
+            <div class="glass p-10 hover:border-blue-500/50 transition cursor-default" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 bg-blue-500/20 text-blue-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-link-slash text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">資產背書缺失</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">過往 Move-to-Earn 模式多依賴新進資金，缺乏 RWA (實體資產) 支持，易陷入死亡螺旋。</p>
+            </div>
+            <div class="glass p-10 hover:border-emerald-500/50 transition cursor-default" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 bg-emerald-500/20 text-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                    <i class="fas fa-vault text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-4">高品質資產隔離</h3>
+                <p class="text-gray-400 leading-relaxed text-sm">綠色債券與能源收益權門檻過高，年輕族群的碎片化資金長期被排除在獲利門外。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulator" class="py-24 bg-black/40">
+        <div class="container mx-auto px-6">
+            <div class="glass p-12 grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <h2 class="text-4xl font-bold">EcoStride <br>投資精算模擬器</h2>
+                    <p class="text-gray-400 italic font-light">
+                        「您可以現場調整參數，模擬 10 年後的複利成長趨勢。」
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-bold text-emerald-400">每日步數 (Daily Steps)</label>
+                                <span id="stepDisplay" class="font-mono">7,500</span>
+                            </div>
+                            <input type="range" id="stepRange" min="5000" max="15000" value="7500" class="w-full h-1 bg-emerald-900 rounded-lg appearance-none cursor-pointer accent-emerald-500">
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <label class="text-sm font-bold text-blue-400">行為穩定度 (Consistency)</label>
+                                <span id="constDisplay" class="font-mono">0.7</span>
+                            </div>
+                            <input type="range" id="constRange" min="0.3" max="1.0" step="0.1" value="0.7" class="w-full h-1 bg-blue-900 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                        </div>
+                    </div>
+
+                    <div class="pt-8 border-t border-white/10 grid grid-cols-2 gap-4">
+                        <div class="bg-white/5 p-4 rounded-2xl">
+                            <div class="text-[10px] text-gray-500 uppercase font-bold mb-1">預估 10 年資產</div>
+                            <div id="finalAsset" class="text-2xl font-bold text-emerald-400">NT$ 6,657</div>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-2xl">
+                            <div class="text-[10px] text-gray-500 uppercase font-bold mb-1">保險公司 Win-Rate</div>
+                            <div class="text-2xl font-bold text-blue-400">56.4%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="h-[400px] w-full">
+                    <canvas id="mainChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-gray-600 text-xs tracking-widest uppercase">
+        EcoStride Project &copy; 2026 | 金融科技專題：蔡宜伶、賀舜禹、曾琬甯
+    </footer>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // 初始化動畫
+        AOS.init({ duration: 1000, once: true });
+
+        // 圖表邏輯
+        const ctx = document.getElementById('mainChart').getContext('2d');
+        let myChart;
+
+        function initChart() {
+            myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: Array.from({length: 11}, (_, i) => `Y${i}`),
+                    datasets: [{
+                        label: 'EcoStride (複利增值)',
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                        data: [],
+                        fill: true,
+                        tension: 0.4,
+                        borderWidth: 3,
+                        pointRadius: 5,
+                        pointBackgroundColor: '#10b981'
+                    }, {
+                        label: '傳統保單 (線性回饋)',
+                        borderColor: '#64748b',
+                        data: Array.from({length: 11}, (_, i) => i * 600),
+                        borderDash: [5, 5],
+                        borderWidth: 1,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#64748b' } },
+                        x: { grid: { display: false }, ticks: { color: '#64748b' } }
+                    }
+                }
+            });
+        }
+
+        function updateSimulation() {
+            const steps = parseInt(document.getElementById('stepRange').value);
+            const consistency = parseFloat(document.getElementById('constRange').value);
+            
+            document.getElementById('stepDisplay').innerText = steps.toLocaleString();
+            document.getElementById('constDisplay').innerText = consistency;
+
+            const alpha = 0.00065;
+            const extraSteps = Math.max(0, steps - 5000);
+            const annualInv = (extraSteps * alpha * consistency + 0.25) * 365; // 簡化精算公式
+            
+            let currentAsset = 0;
+            const dataPoints = [0];
+            for(let i=1; i<=10; i++) {
+                currentAsset = (currentAsset + annualInv) * 1.085; // 3.5% 收益 + 5% 資本利得
+                dataPoints.push(Math.round(currentAsset));
+            }
+
+            myChart.data.datasets[0].data = dataPoints;
+            myChart.update();
+            document.getElementById('finalAsset').innerText = `NT$ ${dataPoints[10].toLocaleString()}`;
+        }
+
+        document.getElementById('stepRange').oninput = updateSimulation;
+        document.getElementById('constRange').oninput = updateSimulation;
+
+        initChart();
+        updateSimulation();
+    </script>
+</body>
+</html>
